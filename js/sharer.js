@@ -36,7 +36,7 @@ function pinIt(e){
         for(var m=0;m<mutations.length;m++) {
             if (mutations[m].type == 'attributes') {
                 //console.log('The ' + mutation.attributeName + ' attribute was modified.');
-                pinh.click();
+                pinh.click();observer.disconnect();
             }
         }
     };
