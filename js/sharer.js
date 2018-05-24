@@ -16,12 +16,14 @@ function repos(){
     // console.log(document.body.offsetWidth);
     // console.log(document.body.scrollWidth);
     if(document.body.offsetWidth > 468){shrelm.style= ''; shrelm.style.top='calc(50% - ' + shrelm.offsetHeight/2 + 'px)'}else{ shrelm.style='';shrelm.style.left='calc(50% - ' + shrelm.offsetWidth/2 + 'px)';}
-        if(document.querySelectorAll('.shr.pin').length == 1){
-        !function(a,b,c){var d,e,f;d="PIN_"+~~((new Date).getTime()/864e5),a[d]?a[d]+=1:(a[d]=1,a.setTimeout(function(){e=b.getElementsByTagName("SCRIPT")[0],f=b.createElement("SCRIPT"),f.type="text/javascript",f.async=!0,f.src=c.mainUrl+"?"+Math.random(),e.parentNode.insertBefore(f,e)},10))}(window,document,{mainUrl:"//assets.pinterest.com/js/pinit_main.js"});
-        }
+
+    //?If Pinterest span is present
+    if(document.querySelectorAll('.shr.pin').length == 1){
+    !function(a,b,c){var d,e,f;d="PIN_"+~~((new Date).getTime()/864e5),a[d]?a[d]+=1:(a[d]=1,a.setTimeout(function(){e=b.getElementsByTagName("SCRIPT")[0],f=b.createElement("SCRIPT"),f.type="text/javascript",f.async=!0,f.src=c.mainUrl+"?"+Math.random(),e.parentNode.insertBefore(f,e)},10))}(window,document,{mainUrl:"//assets.pinterest.com/js/pinit_main.js"});
+    }
     
 }
-//? height offset to center the element
+//?Position on load and reposition to window resize
 window.onload = repos();
 window.addEventListener("resize", function(){
     repos();
