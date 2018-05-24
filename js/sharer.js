@@ -26,21 +26,24 @@ function repos(){
 function pinIt(e){
     e.preventDefault();
     !function(a,b,c){var d,e,f;d="PIN_"+~~((new Date).getTime()/864e5),a[d]?a[d]+=1:(a[d]=1,a.setTimeout(function(){e=b.getElementsByTagName("SCRIPT")[0],f=b.createElement("SCRIPT"),f.type="text/javascript",f.async=!0,f.src=c.mainUrl+"?"+Math.random(),e.parentNode.insertBefore(f,e)},10))}(window,document,{mainUrl:"//assets.pinterest.com/js/pinit_main.js"});
-    var config = { attributes: true};
+    
+    //
+    //?https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver#Example_usage
+    //
+    var config = {attributes: true};
     // Callback function to execute when mutations are observed
-    var callback = function(mutationsList) {
-        for(var mutation of mutationsList) {
-            if (mutation.type == 'attributes') {
-                console.log('The ' + mutation.attributeName + ' attribute was modified.');
-                pinh.click()
+    var callback = function(mutations) {
+        for(var m=0;m<mutations.length;m++) {
+            if (mutations[m].type == 'attributes') {
+                //console.log('The ' + mutation.attributeName + ' attribute was modified.');
+                pinh.click();
             }
         }
     };
     // Create an observer instance linked to the callback function
     var observer = new MutationObserver(callback);
     // Start observing the target node for configured mutations
-    observer.observe(pinh, config);
-    
+    observer.observe(pinh, config);  
 }
 //?Position on load and reposition to window resize
 window.onload = repos();
