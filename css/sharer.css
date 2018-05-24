@@ -9,6 +9,10 @@
     background-position: center;
     display: block;
     background-size: contain;
+    transition: all 0.1s;
+}
+.shr a:hover{
+    margin-left:3px;
 }
 .gp a{
     background-image:url(../img/google_plus.svg);
