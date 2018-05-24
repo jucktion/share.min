@@ -18,13 +18,33 @@ function repos(){
     if(document.body.offsetWidth > 468){shrelm.style= ''; shrelm.style.top='calc(50% - ' + shrelm.offsetHeight/2 + 'px)'}else{ shrelm.style='';shrelm.style.left='calc(50% - ' + shrelm.offsetWidth/2 + 'px)';}
 
     //?If Pinterest span is present
-    if(document.querySelectorAll('.shr.pin').length == 1){
+    // if(document.querySelectorAll('.shr.pin').length == 1){
+    // !function(a,b,c){var d,e,f;d="PIN_"+~~((new Date).getTime()/864e5),a[d]?a[d]+=1:(a[d]=1,a.setTimeout(function(){e=b.getElementsByTagName("SCRIPT")[0],f=b.createElement("SCRIPT"),f.type="text/javascript",f.async=!0,f.src=c.mainUrl+"?"+Math.random(),e.parentNode.insertBefore(f,e)},10))}(window,document,{mainUrl:"//assets.pinterest.com/js/pinit_main.js"});
+    // }
+}
+
+function pinIt(e){
+    e.preventDefault();
     !function(a,b,c){var d,e,f;d="PIN_"+~~((new Date).getTime()/864e5),a[d]?a[d]+=1:(a[d]=1,a.setTimeout(function(){e=b.getElementsByTagName("SCRIPT")[0],f=b.createElement("SCRIPT"),f.type="text/javascript",f.async=!0,f.src=c.mainUrl+"?"+Math.random(),e.parentNode.insertBefore(f,e)},10))}(window,document,{mainUrl:"//assets.pinterest.com/js/pinit_main.js"});
-    }
+    var config = { attributes: true};
+    // Callback function to execute when mutations are observed
+    var callback = function(mutationsList) {
+        for(var mutation of mutationsList) {
+            if (mutation.type == 'attributes') {
+                console.log('The ' + mutation.attributeName + ' attribute was modified.');
+                pinh.click()
+            }
+        }
+    };
+    // Create an observer instance linked to the callback function
+    var observer = new MutationObserver(callback);
+    // Start observing the target node for configured mutations
+    observer.observe(pinh, config);
     
 }
 //?Position on load and reposition to window resize
 window.onload = repos();
+pinh.onclick = pinIt;
 window.addEventListener("resize", function(){
     repos();
 });
