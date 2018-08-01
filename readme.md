@@ -22,20 +22,23 @@ Addition currently needs a little work.
 Many icons are available on the icons folder.
 
 ### In HTML
-The '<span class="shr gp"></span>' is a placeholder for the sharing element to be loaded
+The `<span class="shr gp"></span>` is a placeholder for the sharing element to be loaded
 
 ### In CSS
+```CSS
 .gp a{
     background-image:url(../img/google_plus.svg);
 }
+```
 allows you to display the svg icon to represent the social site
 
 ### In JavaScript (could be optimized)
+```javascript
 var gp = document.querySelector('.shr.gp');
 var gph=document.createElement('a');
 gph.href="https://plus.google.com/share?url="+link;
 gp.appendChild(gph);
-
+```
 Every element is selected through CSS selectors and a 'href' element is created to reflect the share link for the said site
 
 
