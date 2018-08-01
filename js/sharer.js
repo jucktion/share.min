@@ -1,3 +1,9 @@
+/*
+//Minimal sharing floating element generator
+//Uses minified svg icons provided by SuperTinyIcons
+//External file loaded only when required
+//@Nirose @ https://www.jucktion.com 
+*/
 var title= document.title,link = encodeURIComponent(document.location.href);
 var gp = document.querySelector('.shr.gp');var gph=document.createElement('a');gph.href="https://plus.google.com/share?url="+link;gp.appendChild(gph);
 var fb = document.querySelector('.shr.fb');var fbh=document.createElement('a');fbh.href="https://www.facebook.com/sharer.php?u="+link;fb.appendChild(fbh);
@@ -8,6 +14,7 @@ var stmbl = document.querySelector('.shr.stmbl');var stmblh=document.createEleme
 
 var shrs=document.querySelectorAll('.shr a');for(var s=0;s<shrs.length;s++){shrs[s].target="_blank";}
 
+//reposition elements to be mobile responsive
 function repos(){
     var shrelm = document.querySelector('.share');
     // console.log(window.screen.width);
@@ -23,6 +30,8 @@ function repos(){
     // }
 }
 
+//Observe click on pinterest icon to only load the required pinterest share javascript file when required
+//not at the first load
 function pinIt(e){
     e.preventDefault();
     !function(a,b,c){var d,e,f;d="PIN_"+~~((new Date).getTime()/864e5),a[d]?a[d]+=1:(a[d]=1,a.setTimeout(function(){e=b.getElementsByTagName("SCRIPT")[0],f=b.createElement("SCRIPT"),f.type="text/javascript",f.async=!0,f.src=c.mainUrl+"?"+Math.random(),e.parentNode.insertBefore(f,e)},10))}(window,document,{mainUrl:"//assets.pinterest.com/js/pinit_main.js"});

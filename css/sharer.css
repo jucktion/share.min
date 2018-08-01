@@ -1,3 +1,9 @@
+/*
+//Minimal sharing floating element generator
+//Uses minified svg icons provided by SuperTinyIcons
+//External file loaded only when required
+//@Nirose @ https://www.jucktion.com 
+*/
 .share{
     position: fixed;
     left:1px;
