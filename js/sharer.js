@@ -5,11 +5,30 @@
 //@Nirose @ https://www.jucktion.com 
 */
 var title= document.title,link = encodeURIComponent(document.location.href);
-var gp = document.querySelector('.shr.gp');var gph=document.createElement('a');gph.href="https://plus.google.com/share?url="+link;gp.appendChild(gph);
-var fb = document.querySelector('.shr.fb');var fbh=document.createElement('a');fbh.href="https://www.facebook.com/sharer.php?u="+link;fb.appendChild(fbh);
-var twt = document.querySelector('.shr.twt');var twth=document.createElement('a');twth.href="https://twitter.com/intent/tweet?url="+link+"&text="+title;twt.appendChild(twth);
-var pin = document.querySelector('.shr.pin');var pinh=document.createElement('a');pinh.href="https://www.pinterest.com/pin/create/button/";pinh["data-pin-do"]="buttonBookmark";pinh["data-pin-custom"] = "true";pin.appendChild(pinh);
-var stmbl = document.querySelector('.shr.stmbl');var stmblh=document.createElement('a');stmblh.href="http://www.stumbleupon.com/submit?url="+link;stmbl.appendChild(stmblh);
+var gp = document.querySelector('.shr.gp');
+var gph=document.createElement('a');
+gph.href="https://plus.google.com/share?url="+link;
+gp.appendChild(gph);
+
+var fb = document.querySelector('.shr.fb');
+var fbh=document.createElement('a');
+fbh.href="https://www.facebook.com/sharer.php?u="+link;
+fb.appendChild(fbh);
+
+var twt = document.querySelector('.shr.twt');
+var twth=document.createElement('a');
+twth.href="https://twitter.com/intent/tweet?url="+link+"&text="+title;
+twt.appendChild(twth);
+
+var pin = document.querySelector('.shr.pint');
+var pinh=document.createElement('a');
+pinh.href="https://www.pinterest.com/pin/create/button/";
+pinh["data-pin-do"]="buttonBookmark";pinh["data-pin-custom"] = "true";pin.appendChild(pinh);
+
+var mstdn = document.querySelector('.shr.mstdn');
+var mstdnh=document.createElement('a');
+mstdnh.href="https://mastodon.social/share?text="+title+'+'+link;
+mstdn.appendChild(mstdnh);
 //var whats = document.querySelector('.shr.wha');var whtf=document.createElement('a');whtf.href="whatsapp://send?text="+link;whats.appendChild(whtf);
 
 var shrs=document.querySelectorAll('.shr a');for(var s=0;s<shrs.length;s++){shrs[s].target="_blank";}

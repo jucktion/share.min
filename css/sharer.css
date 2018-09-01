@@ -29,11 +29,11 @@
 .twt a{
     background-image:url(../img/twitter.svg)
 }
-.pin a{
+.pint a{
     background-image:url(../img/pinterest.svg)
 }
-.stmbl a{
-    background-image:url(../img/stumbleupon.svg)
+.mstdn a{
+    background-image:url(../img/mastodon.svg)
 }
 @media only screen and (max-width: 468px){
     .share{
