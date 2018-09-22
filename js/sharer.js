@@ -4,7 +4,7 @@
 //External file loaded only when required
 //@Nirose @ https://www.jucktion.com 
 */
-var title= document.title,link = encodeURIComponent(document.location.href);
+var title= encodeURIComponent(document.title),link = encodeURIComponent(document.location.href);
 var gp = document.querySelector('.shr.gp');
 var gph=document.createElement('a');
 gph.href="https://plus.google.com/share?url="+link;
