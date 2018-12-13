@@ -4,34 +4,62 @@
 //External file loaded only when required
 //@Nirose @ https://www.jucktion.com 
 */
+
 var title= encodeURIComponent(document.title),link = encodeURIComponent(document.location.href);
-var gp = document.querySelector('.shr.gp');
-var gph=document.createElement('a');
-gph.href="https://plus.google.com/share?url="+link;
-gp.appendChild(gph);
 
-var fb = document.querySelector('.shr.fb');
-var fbh=document.createElement('a');
-fbh.href="https://www.facebook.com/sharer.php?u="+link;
-fb.appendChild(fbh);
+shr = {"list":[
+        {"shd":"gp",
+        "link":"https://plus.google.com/share?url=%l"},
+        {"shd":"fb",
+        "link":"https://www.facebook.com/sharer.php?u=%l"},
+        {"shd":"twt",
+        "link":"https://twitter.com/intent/tweet?url=%l&text=%t"},
+        {"shd":"mstdn",
+        "link":"https://mastodon.social/share?text=%t+%l"},
+        {"shd":"pint",
+        "link":"https://www.pinterest.com/pin/create/button/"}
+]};
 
-var twt = document.querySelector('.shr.twt');
-var twth=document.createElement('a');
-twth.href="https://twitter.com/intent/tweet?url="+link+"&text="+title;
-twt.appendChild(twth);
+[].forEach.call(shr.list, function(e){
+	sel = '.shr.'+e.shd;
+	var es = document.querySelector(sel);
+    var esa = document.createElement('a');
+    esa.href = (e.link.indexOf('%l') != -1 || e.link.indexOf('%t') != -1)?e.link.replace('%l',link).replace('%t',title):e.link;
+    if(e.shd == 'pint'){esa.setAttribute("data-pin-log","button_pinit");esa.setAttribute("data-pin-custom", "true");}
+    esa.target="_blank";
+	//if () esa.href = e.link.replace('%t',title);
+	es.appendChild(esa);
+});
 
-var pin = document.querySelector('.shr.pint');
-var pinh=document.createElement('a');
-pinh.href="https://www.pinterest.com/pin/create/button/";
-pinh["data-pin-do"]="buttonBookmark";pinh["data-pin-custom"] = "true";pin.appendChild(pinh);
 
-var mstdn = document.querySelector('.shr.mstdn');
-var mstdnh=document.createElement('a');
-mstdnh.href="https://mastodon.social/share?text="+title+'+'+link;
-mstdn.appendChild(mstdnh);
+// var gp = document.querySelector('.shr.gp');
+// var gph=document.createElement('a');
+// gph.href="https://plus.google.com/share?url="+link;
+// gp.appendChild(gph);
+
+// var fb = document.querySelector('.shr.fb');
+// var fbh=document.createElement('a');
+// fbh.href="https://www.facebook.com/sharer.php?u="+link;
+// fb.appendChild(fbh);
+
+// var twt = document.querySelector('.shr.twt');
+// var twth=document.createElement('a');
+// twth.href="https://twitter.com/intent/tweet?url="+link+"&text="+title;
+// twt.appendChild(twth);
+
+// var mstdn = document.querySelector('.shr.mstdn');
+// var mstdnh=document.createElement('a');
+// mstdnh.href="https://mastodon.social/share?text="+title+'+'+link;
+// mstdn.appendChild(mstdnh);
+
+// var pin = document.querySelector('.shr.pint');
+// var pinh=document.createElement('a');
+// pinh.href="https://www.pinterest.com/pin/create/button/";
+// pinh["data-pin-do"]="buttonBookmark";pinh["data-pin-custom"] = "true";pin.appendChild(pinh);
+
 //var whats = document.querySelector('.shr.wha');var whtf=document.createElement('a');whtf.href="whatsapp://send?text="+link;whats.appendChild(whtf);
 
-var shrs=document.querySelectorAll('.shr a');for(var s=0;s<shrs.length;s++){shrs[s].target="_blank";}
+//var shrs=document.querySelectorAll('.shr a');for(var s=0;s<shrs.length;s++){shrs[s].target="_blank";}
 
 //reposition elements to be mobile responsive
 function repos(){
@@ -51,6 +79,7 @@ function repos(){
 
 //Observe click on pinterest icon to only load the required pinterest share javascript file when required
 //not at the first load
+var pinh = document.querySelector('.shr.pint a');
 function pinIt(e){
     e.preventDefault();
     !function(a,b,c){var d,e,f;d="PIN_"+~~((new Date).getTime()/864e5),a[d]?a[d]+=1:(a[d]=1,a.setTimeout(function(){e=b.getElementsByTagName("SCRIPT")[0],f=b.createElement("SCRIPT"),f.type="text/javascript",f.async=!0,f.src=c.mainUrl+"?"+Math.random(),e.parentNode.insertBefore(f,e)},10))}(window,document,{mainUrl:"//assets.pinterest.com/js/pinit_main.js"});
