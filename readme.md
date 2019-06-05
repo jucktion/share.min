@@ -17,7 +17,7 @@ Upload the contents on a folder inside your server. Fix the paths to work proper
 
 ```html
 <link rel="stylesheet" type="text/css" href="css/sharer.min.css">
-</head>
+
 <h1>This is a web page</h1>
 <div id="shrme" class="fb rdt mstdn twt pint"><div>
 <script src="js/sharer.min.js"></script>
