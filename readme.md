@@ -12,17 +12,28 @@ Demo
 ======
 https://www.jucktion.com/share/
 
+### Installation: Place on your site
+Upload the contents on a folder inside your server. Fix the paths to work properly
+
+```html
+<link rel="stylesheet" type="text/css" href="css/sharer.min.css">
+</head>
+<h1>This is a web page</h1>
+<div id="shrme" class="fb rdt mstdn twt pint"><div>
+<script src="js/sharer.min.js"></script>
+```
+
 Social Sites supported
 ======
-Facebook,Twitter,Stumbleupon,Google,Pinterest
+Facebook,Twitter,Mastodon,Reddit,Pinterest
 
 Adding additional sharing options
 ======
 Addition currently needs a little work.
-Many icons are available on the icons folder.
+Many SVG icons are available on the icons folder.
 
 ### In HTML
-The `<span class="shr mstdn"></span>` is a placeholder for the sharing element to be loaded
+The `<div id="shrme" class="fb rdt mstdn twt pint">` is a placeholder for the sharing elements to be loaded. Follows the sequence to place icons in order (left to right).
 
 ### In CSS
 ```CSS
@@ -39,7 +50,7 @@ allows you to display the svg icon to represent the social site
 ```
 shd is the shorthand to be used as CSS selector, which is used to reference a element in the html. Making it unique and same for HTML, CSS, and JS is important. 
 Add a different shorthand for your new site, then link represents the format of share link on the said site.
-The %t represents the title and %l represents the link. These are replaced accordingly through javascript. 
+The **%t** represents the **page title** and **%l** represents the **link**. These are replaced accordingly through javascript. 
 
 
 License
