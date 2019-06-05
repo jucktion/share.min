@@ -32,7 +32,7 @@ The `<span class="shr mstdn"></span>` is a placeholder for the sharing element t
 ```
 allows you to display the svg icon to represent the social site
 
-### In JavaScript (could be optimized)
+### In JavaScript
 ```javascript
         {"shd":"mstdn",
         "link":"https://mastodon.social/share?text=%t+%l"}
