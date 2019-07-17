@@ -47,6 +47,7 @@ allows you to display the svg icon to represent the social site
 
 ### In HTML
 Place the `mstdn` as a classname for the JavaScript and CSS entity we created above
+
 `<div id="shrme" class="fb rdt mstdn twt pint">`
 
 shd is the shorthand to be used as CSS selector, which is used to reference a element in the html. Making it unique and same for HTML, CSS, and JS is important. 
