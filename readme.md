@@ -31,9 +31,6 @@ Adding additional sharing options
 Addition currently needs a little work.
 Many SVG icons are available on the icons folder.
 
-### In HTML
-The `<div id="shrme" class="fb rdt mstdn twt pint">` is a placeholder for the sharing elements to be loaded. Follows the sequence to place icons in order (left to right).
-
 ### In CSS
 ```CSS
 .mstdn a{
@@ -47,6 +44,11 @@ allows you to display the svg icon to represent the social site
         {"shd":"mstdn",
         "link":"https://mastodon.social/share?text=%t+%l"}
 ```
+
+### In HTML
+Place the `mstdn` as a classname for the JavaScript and CSS entity we created above
+`<div id="shrme" class="fb rdt mstdn twt pint">`
+
 shd is the shorthand to be used as CSS selector, which is used to reference a element in the html. Making it unique and same for HTML, CSS, and JS is important. 
 Add a different shorthand for your new site, then link represents the format of share link on the said site.
 The **%t** represents the **page title** and **%l** represents the **link**. These are replaced accordingly through javascript. 
