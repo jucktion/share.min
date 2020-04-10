@@ -5,7 +5,7 @@
 //@Nirose @ https://www.jucktion.com 
 */
 var shrme = document.getElementById('shrme');
-[].forEach.call(shrme.classList, function(e) {
+[].forEach.call(shrme.classList, function (e) {
     d = document.createElement('span');
     d.classList.add('shr', e);
     shrme.appendChild(d);
@@ -16,8 +16,7 @@ var title = encodeURIComponent(document.title),
     link = encodeURIComponent(document.location.href);
 
 shr = {
-    "list": [
-        {
+    "list": [{
             "shd": "fb",
             "link": "https://www.facebook.com/sharer.php?u=%l"
         },
@@ -59,12 +58,10 @@ shr = {
 //reposition elements to be mobile responsive
 function repos() {
     var shrelm = document.querySelector('#shrme');
-
+    shrelm.style = '';
     if (document.body.offsetWidth > 468) {
-        shrelm.style = '';
         shrelm.style.top = 'calc(50% - ' + shrelm.offsetHeight / 2 + 'px)'
     } else {
-        shrelm.style = '';
         shrelm.style.left = 'calc(50% - ' + shrelm.offsetWidth / 2 + 'px)';
     }
 
