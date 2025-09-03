@@ -26,7 +26,7 @@ shr = {
     },
     {
         "shd": "bsky",
-        "link": "https://bsky.app/intent/compose?text=%t"
+        "link": "https://bsky.app/intent/compose?text=%t+%l"
     },
     {
         "shd": "mstdn",
